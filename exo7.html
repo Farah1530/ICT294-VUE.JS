@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apprendre Vue.js</title>
+</head>
+
+<body>
+    <div id="app">
+        <label>Votre nom :</label>
+
+        <input type="text" v-model="username">
+
+        <p>Bonjour {{ username }} !</p>
+
+        <!-- Autres champs avec v-model -->
+        <h3>Autres champs</h3>
+
+        <!-- Case à cocher -->
+        <label>
+            <input type="checkbox" v-model="accepted">
+            J'accepte
+        </label>
+        <p>Accepté : {{ accepted }}</p>
+
+        <!-- Liste déroulante -->
+        <select v-model="selectedCountry">
+            <option value="fr">France</option>
+            <option value="ch">Suisse</option>
+            <option value="be">Belgique</option>
+        </select>
+        <p>Pays choisi : {{ selectedCountry }}</p>
+
+        <!-- Zone de texte -->
+        <textarea v-model="description"></textarea>
+        <p>Description : {{ description }}</p>
+    </div>
+
+    <!-- Chargement de Vue.js 3 depuis le CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const {
+            createApp
+        } = Vue
+
+        createApp({
+            data() {
+                return {
+                    username: '',
+                    accepted: false,
+                    selectedCountry: 'ch',
+                    description: ''
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
