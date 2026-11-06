@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apprendre Vue.js</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Liste simple -->
+        <h2>Nos produits</h2>
+
+        <ul>
+            <li v-for="product in products">
+                {{ product }}
+            </li>
+        </ul>
+
+        <!-- Liste d'objets avec :key -->
+        <h2>Nos produits avec prix</h2>
+
+        <ul>
+            <li v-for="item in productsWithPrice"
+                :key="item.id">
+                {{ item.name }} -
+                {{ item.price }} €
+            </li>
+        </ul>
+    </div>
+
+    <!-- Chargement de Vue.js 3 depuis le CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const {
+            createApp
+        } = Vue
+
+        createApp({
+            data() {
+                return {
+                    products: [
+                        'Chaussettes',
+                        'Chaussures',
+                        'T-shirt',
+                        'Pull'
+                    ],
+                    productsWithPrice: [
+                        { id: 1, name: 'Chaussettes', price: 12 },
+                        { id: 2, name: 'Chaussures', price: 80 },
+                        { id: 3, name: 'T-shirt', price: 25 }
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
