@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apprendre Vue.js</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ product }}</h1>
+        <p>Prix : {{ price }} €</p>
+        <p>Quantité : {{ quantity }}</p>
+    </div>
+
+    <!-- Chargement de Vue.js 3 depuis le CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const {
+            createApp
+        } = Vue
+
+        createApp({
+            data() {
+                return {
+                    product: 'Chaussettes',
+                    price: 12,
+                    quantity: 2
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
